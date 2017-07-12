@@ -1,9 +1,7 @@
 # PBS web page
 
-![alt text](https://yt3.ggpht.com/-zv4HTndHpXI/AAAAAAAAAAI/AAAAAAAAAAA/vbDIPh3zdNU/s100-c-k-no-mo-rj-c0xffffff/photo.jpg "POSTECH Broadcasting System")
-**POSTECH Broadcasting System** (or **PBS**) homepage source. Copyright by [Chaeyong Park](https://www.facebook.com/profile.php?id=100003164601567).
-
-
+<a href="https://pbs.postech.ac.kr"><img src="https://yt3.ggpht.com/-zv4HTndHpXI/AAAAAAAAAAI/AAAAAAAAAAA/vbDIPh3zdNU/s100-c-k-no-mo-rj-c0xffffff/photo.jpg" align="left" hspace="10" vspace="6"></a>
+**POSTECH Broadcasting System** (or **PBS**) homepage source. Copyright by [Chaeyong Park](https://www.facebook.com/profile.php?id=100003164601567).  
 
 ## Development environment
 
