@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    {% include 'homepage/header.html' %}    
+    <body>
+        {% include 'homepage/nav.html' %}
+        <div class="main">
+            <div class="parallax-container">
+                <div class="parallax">
+                    <img src="{% static 'img/banner/info.jpg' %}" class="vintage">
+                </div>
+                <div class="container">
+                    <h1 class="parallax-header center white-text"><br>{{ current.name }}</h1>
+                </div>
+            </div>
+            <div class="section white page">
+                <div class="row">
+					{% include 'homepage/menubar.html' %}
+					<div class="fixed-action-btn" style="bottom:45px; right: 24px">
+						<a id="menu" class="btn btn-floating btn-large postech-red show-on-small"
+						onclick="$('.tap-target').tapTarget('open')"><i class="material-icons">menu</i></a>
+					</div>
+                    <div class="col m7 s12">
+                        <h2 class="container-header">{{ current.name }}</h2>	
+                        <p>This is PBS web page templates.</p>
+                    </div>
+                </div>
+            </div>
+			<div class="tap-target postech-orange" data-activates="menu">
+				<div class="tap-target-content">
+				</div>
+			</div>
+        </div>
+        {% include 'homepage/footer.html' %}
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

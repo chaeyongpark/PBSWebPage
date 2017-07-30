@@ -1,21 +1,85 @@
-<nav class="navbar navbar-default">
-	<div class="container-fluid">
-	<!-- Brand and toggle get grouped for better mobile display -->
+{% load static %}
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper blue-grey">
+            <a href="/" class="brand-logo center">
+                <img src="{% static 'img/logo.jpg' %}" class="circle responsive-img"/>
+            </a>
+            <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right">
-			<li><a href="/codeToItem/">A</a></li>
-			<li><a href="/use/">B</a></li>
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">C<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="/combination/">C-A</a></li>
-					<li><a href="/lab/">C-B</a></li>
-				</ul>
-			</li>
-			<li><a href="/itemBook/">D</a></li>
+            <ul class="hide-on-med-and-down nav-left">
+                <li><a href="/info/" class="waves-effect waves-light dropdown-button" data-activates="pbs-dropdown">ABOUT US</a></li>
+                <li><a class="waves-effect waves-light dropdown-button" data-activates="news-dropdown" >NEWS</a></li>
+                <li><a class="waves-effect waves-light dropdown-button" data-activates="entertainment-dropdown">ENTERTAINMENT</a></li>
+            </ul>
+            <ul class="hide-on-med-and-down nav-right">
+                <li><a class="waves-effect waves-light dropdown-button" data-activates="radio-dropdown">PBS RADIO</a></li>
+                <li><a class="waves-effect waves-light dropdown-button" data-activates="postech-dropdown" >PBS IN POSTECH</a></li>
+                <li><a class="waves-effect waves-light dropdown-button" data-activates="board-dropdown">BOARD</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
 
-		</div><!-- /.navbar-collapse -->
-	</div><!-- /.container-fluid -->
-</nav>
+<ul id="mobile-menu" class="side-nav">
+    <li><div class="user-view">
+            <a href="/"><span class="postech-red-text">pcy8201@postech.ac.kr</span></a>
+        </div></li>
+    <li><a href="/info" class="waves-effect">ABOUT US</a></li>
+    <li><a href="/pbs_plus" class="waves-effect">ENTERTAINMENT</a></li>
+    <li><div class="divider"></div></li>
+</ul>
+
+<ul id="pbs-dropdown" class="dropdown-content">
+    <li><a href="/info">PBS 소개</a></li>
+    <li class="divider"></li>
+    <li><a href="#">연혁</a></li>
+    <li class="divider"></li>
+    <li><a href="#">CI</a></li>
+    <li class="divider"></li>
+    <li><a href="#">조직도</a></li>
+    <li class="divider"></li>
+    <li><a href="#">지원</a></li>
+    <li class="divider"></li>
+    <li><a href="/contact">Contact us</a></li>
+</ul>
+
+<ul id="news-dropdown" class="dropdown-content">
+    <li><a href="#">PBS 요기조기</a></li>
+    <li class="divider"></li>
+    <li><a href="/pbs_plus">PBS+</a></li>
+    <li class="divider"></li>
+    <li><a href="#">Po:Q</a></li>
+    <li class="divider"></li>
+    <li><a href="#">PBS Card news</a></li>
+</ul>
+
+<ul id="entertainment-dropdown" class="dropdown-content">
+    <li><a href="#">PBS 잉여언론학과</a></li>
+    <li class="divider"></li>
+    <li><a href="#">PBS 예능</a></li>
+</ul>
+
+<ul id="radio-dropdown" class="dropdown-content">
+    <li><a href="#">POSTECH 화요일 속으로</a></li>
+</ul>
+
+<ul id="postech-dropdown" class="dropdown-content">
+    <li><a href="#">해맞이한마당</a></li>
+    <li class="divider"></li>
+    <li><a href="#">POSTECH-KAIST학생대제전</a></li>
+    <li class="divider"></li>
+    <li><a href="#">새내기새로배움터</a></li>
+    <li class="divider"></li>
+    <li><a href="#">전체학생대의원회의</a></li>
+</ul>
+
+<ul id="board-dropdown" class="dropdown-content">
+    <li><a href="#">공지사항</a></li>
+    <li class="divider"></li>
+    <li><a href="#">설문조사</a></li>
+    <li class="divider"></li>
+    <li><a href="#">시청자게시판</a></li>
+    <li class="divider"></li>
+    <li><a href="#">사연신청</a></li>
+</ul>

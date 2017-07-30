@@ -1,0 +1,16 @@
+<div class="col l2 offset-l1 m3 hide-on-small-only">
+	<ul class="collapsible popout" data-collapsible="accordion">
+		{% for i in menu %}
+		{% if i.name == current.name %}
+		<li>
+			<div class="collapsible-header menu active">{{ i.name }}</div>
+		</li>
+		{% else %}
+		<li>    
+			<a class="no-h" href="{{ i.link }}"><div class="collapsible-header menu">{{ i.name }}</div></a>
+		</li>
+		{% endif %}
+		{% endfor %}
+	</ul>
+</div>
+

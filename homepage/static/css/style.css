@@ -14,35 +14,154 @@
 }*/
 /* CUSTOMIZE HEADER AND FOOTER
    -------------------------------------------------- */
+.postech-red {
+	background-color: #C80150 !important
+}
+
+.postech-red-text{
+	color: #C80150 !important
+}
+
+.postech-orange {
+	background-color: #FFB300 !important
+}
+
+.postech-orange-text{
+	color: #FFB300 !important
+}
+
+.postech-gray {
+	background-color: #66665C !important
+}
+
+.postech-gray-text{
+	color: #66665C !important
+}
 
 html {
 	position: relative;
-	min-height: 100%;
 }
 
 body {
-	color: #5a5a5a;
-	margin-bottom: 70px;
+	font-family: "Nanum Gothic", sans-serif;
+	background-color: #fafafa;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 
-footer {
-	border-top: 1px solid #dbdbdb;
-	padding-top: 10px;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 70px;
+main {
+	flex: 1 0 auto;
 }
-.video_wrapper {
-	position: relative;
-	padding-bottom: 56.25%;  /* 16:9 */
-	padding-top: 25px;
-	height: 0;
+
+.navbar {
+	/*z-index: 100;
+	position: fixed;*/
 }
-.video_wrapper iframe {
+
+.nav-wrapper.scrolled{
+/*	background: rgba(0, 0, 0, 0.6) !important;*/
+}
+
+.nav-left {
 	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+	right: 50%;
+	margin-right: 60px;
+}
+
+.nav-left > li > a {
+	font-weight:Bold;
+}
+
+.nav-right {
+	position: absolute;
+	left: 50%;
+	margin-left: 60px;
+}
+
+.nav-right > li > a {
+	font-weight:Bold;
+}
+
+.dropdown-content > li > a{
+	color: #455a64 !important;
+	text-align: center;
+	font-weight: Bold;
+}
+
+.dropdown-content > li {
+	text-align: center;
+}
+
+.logo {
+	width: 70%;
+	min-width: 100px;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.brand-logo {
+	z-index: 1;
+}
+
+.main-video {
+	background: orange;
+}
+
+.dropdown-content {
+	z-index: 1;
+}
+
+.show-pic {
+	padding: 0 !important;
+	margin : 0 !important;
+}
+
+.video-container {
+	margin-top: 8px;
+}
+
+.video-wrapper {
+	margin-top: 10px;
+}
+
+.parallax-container	{
+	height: 250px;
+}
+
+.vintage {
+	-webkit-filter: sepia(70%) grayscale(40%) brightness(60%);
+	-moz-filter: sepia(70%) grayscale(40%) brightness(60%);
+	-o-filter: sepia(70%) grayscale(40%) brightness(60%);
+	-ms-filter: sepia(70%) grayscale(40%) brightness(60%);
+	filter: sepia(70%) grayscale(30%) brightness(60%);
+}
+
+.parallax-header {
+	color: #FFFFFF;
+	font-weight: Bold;
+}
+
+.container-header {
+	color: #C80150;
+	font-weight: Bold;
+	border-bottom: 1.5px solid #DDDDDD;
+}
+
+.page {
+	min-height: 500px;
+}
+
+.menu {
+	font-weight: Bold !important;
+}
+
+.no-h {
+	color: black;
+}
+
+.icon {
+	width: 40%;
+	min-width: 20px;
+	margin-right: 3px;
 }
