@@ -24,6 +24,8 @@ class Video(models.Model):
     title = models.CharField(max_length=100)
     category = models.ForeignKey(Category)
     url = models.CharField(max_length=100)
+    explain = models.CharField(max_length=100, null = True, default="This is test comment of video. you should fill this place")
+    date = models.DateField(blank = True, null = True)
 
     def __str__(self):
         return self.title

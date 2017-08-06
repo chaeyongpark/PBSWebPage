@@ -47,3 +47,4 @@ function checkScroll(){
         console.log("UNSCROLL");
     }
 }
+$('.video-card').matchHeight();

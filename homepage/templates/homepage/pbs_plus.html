@@ -16,13 +16,48 @@
             </div>
             <div class="section white page">
                 <div class="row">
-                        {% include 'homepage/menubar.html' %}
-                    <div class="col m7 s12 row">
-                        <h2 class="container-header">{{ current.name }}</h2>
+                    {% include 'homepage/menubar.html' %}
+                    <div class="col l7 m9 s12 row">
+                        <div class="container-header">
+                            <span class="board-title">{{ current.name }}</span><span class="board-comment">{{ current.explain }}</span>
+                        </div>
+                        <!-- It is the same template here -->
+
+                        <div class="col m12">
+                            <h5>{{ main_video.title }}</h5>
+                        </div>
                         <div class="col m10 offset-m1 s12">
                             <div class="video-container hoverable">
-                                <iframe width="853" height="480" src="http://www.youtube.com/embed/{{ video.url}}" frameborder="0" allowfullscreen></iframe>
+                                <iframe width="853" height="480" src="http://www.youtube.com/embed/{{ main_video.url}}" frameborder="0" allowfullscreen></iframe>
                             </div>
+                        </div>
+                        <div class="col m12">
+                            <p>{{ main_video.explain }}</p>
+                        </div>
+                        <div class="video-copyright col m12">
+                            <p>© 포항공과대학교방송국PBS(http://pbs.postech.ac.kr)<br>무단전재 및 재배포금지 | <a class="postech-orange-text" href="/contact">저작권문의</a></p>
+                        </div>
+                        <div class="videos row">
+                        {% for v in video reversed %}
+                        <div class="col s12 m6 l4">
+                            <a class="a-black" href="/pbs_plus/?id={{ v.id }}">
+                                <div class="card video-card hoverable">
+                                    <div class="card-image">
+                                        <img src="https://img.youtube.com/vi/{{ v.url}}/mqdefault.jpg">
+                                    </div>
+                                    <div class="card-content">
+                                        <p>{{ v.title }}</p>
+                                        <p class="video-date">{{ v.date.year }}년 {{v.date.month }}월 {{ v.date.day }}일</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        </div>
+                        <div class="col m12">
+                            <ul class="pagination center">
+                                <li class="active postech-red"><a href="#!">1</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

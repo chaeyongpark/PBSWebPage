@@ -143,10 +143,17 @@ main {
 }
 
 .container-header {
-	color: #C80150;
-	font-weight: Bold;
 	border-bottom: 1.5px solid #DDDDDD;
+	margin: 0 0 10px 0;
 }
+
+.board-title {
+	color: #C80150;
+	font-size: 50px;
+	font-weight: Bold;
+	padding-right: 30px;
+}
+
 
 .page {
 	min-height: 500px;
@@ -165,3 +172,23 @@ main {
 	min-width: 20px;
 	margin-right: 3px;
 }
+
+.video-copyright {
+	text-align: right;
+	border-bottom: 0.5px solid #DDDDDD;
+	margin: 10px;
+}
+
+.video-copyright > p > a {
+	color: black;
+}
+
+.video-date { 
+	text-align: right !important;
+	color: #757575 !important;
+}
+
+.a-black {
+	color: black;
+}
+
