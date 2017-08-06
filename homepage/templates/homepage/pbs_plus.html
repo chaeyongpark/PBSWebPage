@@ -1,69 +1,47 @@
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-    {% include 'homepage/header.html' %}    
-    <body>
-        {% include 'homepage/nav.html' %}
-        <div class="main">
-            <div class="parallax-container">
-                <div class="parallax">
-                    <img src="{% static 'img/banner/info.jpg' %}" class="vintage">
-                </div>
-                <div class="container">
-                    <h1 class="parallax-header center white-text"><br>{{ current.name }}</h1>
-                </div>
-            </div>
-            <div class="section white page">
-                <div class="row">
-                    {% include 'homepage/menubar.html' %}
-                    <div class="col l7 m9 s12 row">
-                        <div class="container-header">
-                            <span class="board-title">{{ current.name }}</span><span class="board-comment">{{ current.explain }}</span>
-                        </div>
-                        <!-- It is the same template here -->
+{% include 'homepage/upper_template.html' %}
 
-                        <div class="col m12">
-                            <h5>{{ main_video.title }}</h5>
-                        </div>
-                        <div class="col m10 offset-m1 s12">
-                            <div class="video-container hoverable">
-                                <iframe width="853" height="480" src="http://www.youtube.com/embed/{{ main_video.url}}" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="col m12">
-                            <p>{{ main_video.explain }}</p>
-                        </div>
-                        <div class="video-copyright col m12">
-                            <p>© 포항공과대학교방송국PBS(http://pbs.postech.ac.kr)<br>무단전재 및 재배포금지 | <a class="postech-orange-text" href="/contact">저작권문의</a></p>
-                        </div>
-                        <div class="videos row">
-                        {% for v in video reversed %}
-                        <div class="col s12 m6 l4">
-                            <a class="a-black" href="/pbs_plus/?id={{ v.id }}">
-                                <div class="card video-card hoverable">
-                                    <div class="card-image">
-                                        <img src="https://img.youtube.com/vi/{{ v.url}}/mqdefault.jpg">
-                                    </div>
-                                    <div class="card-content">
-                                        <p>{{ v.title }}</p>
-                                        <p class="video-date">{{ v.date.year }}년 {{v.date.month }}월 {{ v.date.day }}일</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        {% endfor %}
-                        </div>
-                        <div class="col m12">
-                            <ul class="pagination center">
-                                <li class="active postech-red"><a href="#!">1</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% include 'homepage/footer.html' %}
-        <script src="{% static 'js/main.js' %}"></script>
-    </body>
-</html>
+<div class="col m12">
+	<h5>{{ main_video.title }}</h5>
+</div>
+<div class="col m10 offset-m1 s12">
+	<div class="video-container hoverable">
+		<iframe width="853" height="480" src="http://www.youtube.com/embed/{{ main_video.url}}" frameborder="0" allowfullscreen></iframe>
+	</div>
+</div>
+<div class="col m12">
+	<p>{{ main_video.explain }}</p>
+</div>
+<div class="video-copyright col m12">
+	<p>© 포항공과대학교방송국PBS(http://pbs.postech.ac.kr)<br>무단전재 및 재배포금지 | <a class="postech-orange-text" href="/contact">저작권문의</a></p>
+</div>
+<div class="videos row" id="videos">
+{% for v in video%}
+<div class="col s12 m6 l4">
+	<a class="a-black" href="{{ current.link }}/?v={{ v.pk }}&p={{ now }}">
+		<div class="card video-card hoverable">
+			<div class="card-image">
+				<img src="https://img.youtube.com/vi/{{ v.url}}/mqdefault.jpg">
+			</div>
+			<div class="card-content">
+				<p>{{ v.title }}</p>
+				<p class="video-date">{{ v.date.year }}년 {{v.date.month }}월 {{ v.date.day }}일</p>
+			</div>
+		</div>
+	</a>
+</div>
+{% endfor %}
+</div>
+<div class="col m12">
+	<ul class="pagination center" id="page-counter">
+		{% for p in page %}
+			{% if p == now %}
+				<li class="active postech-red"><a class="list_change" href="{{ current.link }}/?p={{ p }}">{{ p }}</a></li>
+			{% else %}
+				<li><a class="list_change" href="{{ current.link }}/?p={{ p }}">{{ p }}</a></li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</div>
+{% include 'homepage/lower_template.html' %}

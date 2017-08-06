@@ -1,30 +1,4 @@
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-    {% include 'homepage/header.html' %}    
-    <body>
-        {% include 'homepage/nav.html' %}
-        <div class="main">
-            <div class="parallax-container">
-                <div class="parallax">
-                    <img src="{% static 'img/banner/info.jpg' %}" class="vintage">
-                </div>
-                <div class="container">
-                    <h1 class="parallax-header center white-text"><br>{{ current.name }}</h1>
-                </div>
-            </div>
-            <div class="section white page">
-                <div class="row">
-						{% include 'homepage/menubar.html' %}
-                    <div class="col m7 s12">
-                        <h2 class="container-header">{{ current.name }}</h2>	
-                        <p>This is PBS web page templates.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% include 'homepage/footer.html' %}
-        <script src="{% static 'js/main.js' %}"></script>
-    </body>
-</html>
+{% include 'homepage/upper_template.html' %}
+{% include 'homepage/lower_template.html' %}
