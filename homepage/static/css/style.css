@@ -4,16 +4,8 @@
 	src: url('NanumGothic.eot');
 	src: local(※), url('NanumGothic.woff') format('woff')
 }
-/*@font-face {
-	src: url('images/NanumGothic.eot');
-	src: url('images/NanumGothic.eot?#iefix') format('embedded-opentype'),
-		 url('images/NanumGothic.woff') format('woff'),
-		 url('images/NanumGothic.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}*/
-/* CUSTOMIZE HEADER AND FOOTER
-   -------------------------------------------------- */
+
+/* POSTECH Color */
 .postech-red {
 	background-color: #C80150 !important
 }
@@ -54,11 +46,7 @@ main {
 	flex: 1 0 auto;
 }
 
-.navbar {
-	/*z-index: 100;
-	position: fixed;*/
-}
-
+/* Navbar */
 .nav-wrapper.scrolled{
 /*	background: rgba(0, 0, 0, 0.6) !important;*/
 }
@@ -83,16 +71,6 @@ main {
 	font-weight:Bold;
 }
 
-.dropdown-content > li > a{
-	color: #455a64 !important;
-	text-align: center;
-	font-weight: Bold;
-}
-
-.dropdown-content > li {
-	text-align: center;
-}
-
 .logo {
 	width: 70%;
 	min-width: 100px;
@@ -104,9 +82,17 @@ main {
 	z-index: 1;
 }
 
-.main-video {
-	background: orange;
+/* Dropdown menu */
+.dropdown-content > li > a{
+	color: #455a64 !important;
+	text-align: center;
+	font-weight: Bold;
 }
+
+.dropdown-content > li {
+	text-align: center;
+}
+
 
 .dropdown-content {
 	z-index: 1;
@@ -115,14 +101,6 @@ main {
 .show-pic {
 	padding: 0 !important;
 	margin : 0 !important;
-}
-
-.video-container {
-	margin-top: 8px;
-}
-
-.video-wrapper {
-	margin-top: 10px;
 }
 
 .parallax-container	{
@@ -154,7 +132,6 @@ main {
 	padding-right: 30px;
 }
 
-
 .page {
 	min-height: 500px;
 }
@@ -173,10 +150,19 @@ main {
 	margin-right: 3px;
 }
 
+.a-black {
+	color: black;
+}
+
+/* Video */
 .video-copyright {
 	text-align: right;
 	border-bottom: 0.5px solid #DDDDDD;
 	margin: 10px;
+}
+
+.main-video {
+	background: orange;
 }
 
 .video-copyright > p > a {
@@ -188,7 +174,35 @@ main {
 	color: #757575 !important;
 }
 
-.a-black {
-	color: black;
+.video-container {
+	margin-top: 8px;
 }
 
+.video-wrapper {
+	margin-top: 10px;
+}
+
+/* Notice */
+.notice-date {
+	text-align: right !important;
+	color: #757575 !important;
+	margin: 0 !important;
+}
+
+.notice-title {
+	margin-top: 50px;
+	padding-top: 25px;
+	padding-left: 15px;
+	border-top: 2px solid #DDDDDD;
+	border-bottom: 2px solid #DDDDDD;
+}
+
+.note-date {
+	text-align: right !important;
+	color: #757575 !important;
+	margin-top: 0;
+}
+
+.notice-content {
+	margin-top: 20px;
+}

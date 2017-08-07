@@ -1,7 +1,7 @@
 # PBS web page
 
 <a href="https://pbs.postech.ac.kr"><img src="https://yt3.ggpht.com/-zv4HTndHpXI/AAAAAAAAAAI/AAAAAAAAAAA/vbDIPh3zdNU/s100-c-k-no-mo-rj-c0xffffff/photo.jpg" align="left" hspace="10" vspace="6"></a>
-**POSTECH Broadcasting System** (or **PBS**) homepage source.  
+**POSTECH Broadcasting System** (or **PBS**) homepage source. 
 Copyright by [Chaeyong Park](https://www.facebook.com/profile.php?id=100003164601567).  
 
 ## Development environment
@@ -19,4 +19,11 @@ Copyright by [Chaeyong Park](https://www.facebook.com/profile.php?id=10000316460
 
 ## TODO
 
-* all (Now only blank web page)
+* Write default content (ex About us).
+* Change normal logo to *responsive logo*.
+* Change video play button.
+* Change video player using AJAX
+* Put image to notice page
+* Enable newline in notice page
+* Rearrange of footer content
+* *IMPORTANT* Change theme color

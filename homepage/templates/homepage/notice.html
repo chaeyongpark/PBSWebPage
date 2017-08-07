@@ -1,0 +1,25 @@
+{% load static %}
+
+{% include 'homepage/upper_template.html' %}
+<div class="col m10 offset-m1 s12">
+	<div class="collection" id="items">
+		{% for n in note %}
+		<a href="{{ current.link }}/?n={{ n.pk }}" class="waves-effect waves-light collection-item">
+			<span class="menu grey-text text-darken-4">{{ n.title }}<br></span>
+			<p class="notice-date">{{ n.date.year }}년 {{ n.date.month }}월 {{ n.date.day }}일</p>
+		</a>
+		{% endfor %}
+	</div>
+</div>
+<div class="col s10 offset-s1">
+	<ul class="pagination center" id="page-counter">
+		{% for p in page %}
+			{% if p == now %}
+				<li class="active postech-red"><a href="" class="list_change_notice" name="{{ p }}">{{ p }}</a></li>
+			{% else %}
+				<li><a href="" class="list_change_notice" name="{{ p }}">{{ p }}</a></li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</div>
+{% include 'homepage/lower_template.html' %}

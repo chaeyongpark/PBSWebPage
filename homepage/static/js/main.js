@@ -8,6 +8,38 @@
  * Linkedin: www.linkedin.com/in/chaeyong
  */
 
+// Setting of AJAX post method
+var csrftoken = getCookie('csrftoken');
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+function csrfSafeMethod(method) {
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+////////////
+
 const cstr = [
 	"<div class=\"col s12 m6 l4\"><a class=\"a-black\" href=\"/",
 	"/?v=",
@@ -18,6 +50,15 @@ const cstr = [
 	"년 ",
 	"월 ",
 	"일</p></div></div></a></div>"
+];
+
+const nstr = [
+	"<a href=\"/notice/?n=",
+	"\"class=\"collection-item\"><span class=\"menu grey-text text-darken-4\">",
+	"<br></span><p class=\"notice-date\">",
+	"년 ",
+	"월 ",
+	"일 </p></a>"
 ];
 
 // Mobile side navbar menu
@@ -40,19 +81,6 @@ $(document).ready(function(){
     });
 });
 
-$(document).on('click', '.list_change', function () { 
-	console.log('CLICKED');
-
-	var link = $(this).attr('href');
-    var menu = link.split('/');
-    var page = menu[2].split('=');
-
-    console.log(menu[1], page[1]);
-   	get_list(menu[1], page[1]);
-
-	return false;
-});
-      
 // For checking scroll, when navbar exist
 if($('.navbar').length > 0){
     $(window).on("scroll load resize", function(){
@@ -60,25 +88,56 @@ if($('.navbar').length > 0){
     });
 }
 
-var get_list = function(menu, page) {
-	$.getJSON('/' + menu + '/?p=' + page, function(data) {
+$(document).on('click', '.list_change', function () {
+	var page = $(this).attr('name');
+	ChangePageOfVideo(page, "list_change", "pbs_plus");
+	
+	return false;
+});
+
+$(document).on('click', '.list_change_notice', function () {
+	var page = $(this).attr('name');
+
+	$.post('/notice/', { next_page: page }, function (data) {
+		var note = $.map(data.note, function(l) {
+			var n = l.fields;
+			date = DateParser(n.date);
+			return nstr[0] + l.pk + nstr[1] + n.title + nstr[2] + date[0] + nstr[3] + date[1] + nstr[4] + date[2] + nstr[5];
+		});
+		$('#items').html(note);
+
+		var p = $.map(data.page, function (l) {
+			if (l == data.now) {
+				return "<li class=\"active postech-red\"><a href=\"\" class=\"list_change_notice\" name=\"" + l + "\">" + l + "</a></li>";
+			} else {
+				return "<li><a href=\"\" class=\"list_change_notice\" name=\"" + l + "\">" + l + "</a></li>";
+			}
+		});
+		$('#page-counter').html(p);
+
+	});
+
+	return false;
+});
+
+function ChangePageOfVideo(page, class_name, url) {
+	$.post("/" + url + "/", { next_page: page }, function (data) {
 		var card = $.map(data.video, function(l) {
 			var v = l.fields;
 			date = DateParser(v.date);
-			list = cstr[0] + menu + cstr[1] + l.pk + cstr[2] + data.now + cstr[3] + v.url + cstr[4] + v.title + cstr[5] + 
+			return cstr[0] + url + cstr[1] + l.pk + cstr[2] + data.now + cstr[3] + v.url + cstr[4] + v.title + cstr[5] + 
 				   date[0] + cstr[6] + date[1] + cstr[7] + date[2] + cstr[8];
-			return list;
-		}).join('');
-		$('#videos').html(card);	
+		});
+		$('#items').html(card);	
 		$('.video-card').matchHeight();
-		
+
 		var p = $.map(data.page, function (l) {
 			if (l == data.now) {
-				return ActivePage(menu, l);
+				return "<li class=\"active postech-red\"><a href=\"\" class=\""+ class_name +"\" name=\"" + l + "\">" + l + "</a></li>";
 			} else {
-				return UnactivePage(menu, l);
+				return "<li><a href=\"\" class=\"" + class_name + "\" name=\"" + l + "\">" + l + "</a></li>";
 			}
-		}).join('');
+		});
 		$('#page-counter').html(p);
 	});
 };
@@ -86,16 +145,9 @@ var get_list = function(menu, page) {
 // TODO delete 05 -> 5
 function DateParser(str) {
 	var d = str.split('-');
-	d[1].replace(/(^0)/, "");
+	d[1] = d[1].replace(/(^0)/, "");
+	d[2] = d[2].replace(/(^0)/, "");
 	return d;
-};
-
-function ActivePage(link, pnum) {
-	return "<li class=\"active postech-red\"><a class=\"list_change\" href=\"/" + link + "/?p=" + pnum + "\">" + pnum + "</a></li>";
-};
-
-function UnactivePage(link, pnum) {
-	return "<li><a class=\"list_change\" href=\"/" + link + "/?p=" + pnum + "\">" + pnum + "</a></li>";
 };
 
 // Check whether scroll is on or not

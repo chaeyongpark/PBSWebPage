@@ -16,7 +16,7 @@
 <div class="video-copyright col m12">
 	<p>© 포항공과대학교방송국PBS(http://pbs.postech.ac.kr)<br>무단전재 및 재배포금지 | <a class="postech-orange-text" href="/contact">저작권문의</a></p>
 </div>
-<div class="videos row" id="videos">
+<div class="videos row" id="items">
 {% for v in video%}
 <div class="col s12 m6 l4">
 	<a class="a-black" href="{{ current.link }}/?v={{ v.pk }}&p={{ now }}">
@@ -37,9 +37,9 @@
 	<ul class="pagination center" id="page-counter">
 		{% for p in page %}
 			{% if p == now %}
-				<li class="active postech-red"><a class="list_change" href="{{ current.link }}/?p={{ p }}">{{ p }}</a></li>
+				<li class="active postech-red"><a href="" class="list_change" name="{{ p }}">{{ p }}</a></li>
 			{% else %}
-				<li><a class="list_change" href="{{ current.link }}/?p={{ p }}">{{ p }}</a></li>
+				<li><a href="" class="list_change" name="{{ p }}">{{ p }}</a></li>
 			{% endif %}
 		{% endfor %}
 	</ul>
