@@ -8,7 +8,11 @@
 	</div>
 	<div class="col m10 offset-m1 s12 notice-content">
 	{% autoescape on %}
-		<p class="notice-content">{{ note.content|linebreaksbr }}</p>
+		<p class="notice-content">
+		{% autoescape off %}
+			{{ note.content }}
+		{% endautoescape %}		
+		</p>
 	{% endautoescape %}
 	</div>
 </div>

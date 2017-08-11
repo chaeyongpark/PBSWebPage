@@ -1,0 +1,14 @@
+{% load static %}
+
+{% include 'homepage/upper_template.html' %}
+<div class="col s12 m6 l4 offset-l2 ci">
+	<span class="ci-title">엠블럼<br><br></span>
+	<img class="responsive-img" src="{% static 'img/logo/logo_256.png' %}"/><br><br>
+	배경 포함 정사각형<br>
+</div>
+<div class="col s12 m6 l4 ci">
+	<span class="ci-title">로고/워터마크<br><br></span>
+	<img class="responsive-img" src="{% static 'img/logo/logo_cheatin_256.png' %}"/><br><br>
+	Cheatin, 최소규격 32pt, 흰색~검은색(무채색), 배경 없이 사용
+</div>
+{% include 'homepage/lower_template.html' %}

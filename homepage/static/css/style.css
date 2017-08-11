@@ -1,8 +1,8 @@
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 @font-face {
-	font-family:'NanumGothic';
-	src: url('NanumGothic.eot');
-	src: local(※), url('NanumGothic.woff') format('woff')
+	font-family: 'Noto Sans KR', sans-serif;
+	font-style: normal;
+	font-weight: normal;
 }
 
 /* POSTECH Color */
@@ -122,7 +122,7 @@ main {
 
 .container-header {
 	border-bottom: 1.5px solid #DDDDDD;
-	margin: 0 0 10px 0;
+	margin: 0 0 20px 0;
 }
 
 .board-title {
@@ -190,7 +190,7 @@ main {
 }
 
 .notice-title {
-	margin-top: 50px;
+	margin-top: 35px;
 	padding-top: 25px;
 	padding-left: 15px;
 	border-top: 2px solid #DDDDDD;
@@ -205,4 +205,135 @@ main {
 
 .notice-content {
 	margin-top: 20px;
+	text-align: justify;
 }
+
+/* contact us */
+.contact-us {
+	font-size: 20px;
+}
+
+.contact-title {
+	color: #a1887f;
+	font-weight: Bold;
+}
+
+.map {
+	width: 100%;
+	height: 400px;
+	background-color: grey;
+}
+
+/* CI */
+.ci {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.ci-title {
+	font-size: 20px;
+	font-weight: Bold;
+	color: #a1887f;
+}
+
+/* info */
+.about-us-title {
+	font-weight: Bold;
+}
+
+.info-title {
+	margin-bottom: 50px;
+}
+
+.master-hi {
+	margin-top: 50px !important;
+}
+
+.master-hi-img {
+	margin-bottom: 10px;
+}
+
+.master-hi-content {
+	text-align: justify;
+}
+
+/* history */
+.history-left {
+	background-color: #fafafa;
+	text-align: right;
+	margin-right: 20px;
+	margin-bottom: -40px;
+}
+
+.history-right {
+	background-color: #fafafa;
+	margin-left: 20px;
+	margin-bottom: -40px;
+}
+
+.history-mon {
+	font-size: 20px;
+	font-weight: Bold;
+	color: #795548;
+}
+
+.history-title {
+	font-size: 30px;
+	font-weight: Bold;
+}
+
+.history-content {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.history-dl-right > dt {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	width: 10%;
+}
+	
+.history-dl-right > dd {
+	display: inline-block;
+	vertical-align: middle;
+	width: 80%;
+	margin: 0;
+	padding: 0;
+}
+
+.history-dl-left > dt {
+	display: inline-block;
+	vertical-align: middle;
+	width: 80%;
+}
+	
+.history-dl-left > dd {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	width: 10%;
+	margin: 0;
+	padding: 0;
+}
+
+@media all and (max-width : 640px) {
+	.history-right {
+		margin-bottom: 10px;
+	}
+
+	.history-left {
+		margin-bottom: 10px;
+	}
+}
+
+/* cardnews */
+.cardnews-content {
+	margin-top: 20px;
+}
+
+.card-news-mobile {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+

@@ -73,6 +73,7 @@ $(document).ready(function(){
 	}
 	$('.collapsible').collapsible();
 	$('.parallax').parallax();
+	$('.carousel.carousel-slider').carousel({fullWidth: true});
     $('.dropdown-button').dropdown({
         constrainWidth: false,
         hover: true,
@@ -163,5 +164,17 @@ function checkScroll(){
     }
 };
 
+function initMap() {
+	var pbs_coord = {lat: 36.013123, lng: 129.321050};
+	var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 16,
+		center: pbs_coord
+	});
+	var marker = new google.maps.Marker({
+		position: pbs_coord,
+		map: map
+	});
+}
 // Make same height of video cards
+$('.video-card').matchHeight();
 $('.video-card').matchHeight();

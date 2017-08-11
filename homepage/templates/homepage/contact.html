@@ -1,4 +1,19 @@
 {% load static %}
 
 {% include 'homepage/upper_template.html' %}
+<div class="map" id="map"></div>
+<p class="contact-us">
+<span class="contact-title">Mail<br></span>
+&emsp;postechpbs13@gmail.com<br>
+<span class="contact-title">Phone<br></span>
+&emsp;054) 279-3845<br>
+<span class="contact-title">Messenger<br></span>
+&emsp;m.me/postechpbs<br>
+<span class="contact-title">찾아오는 길<br></span>
+&emsp;경북 포항시남구 청암로 77<br>
+&emsp;포항공과대학교 학생회관 310<br>
+</p>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyHpJMMBtBdpMPTYs7Jc4c_-KaT3Re91E&callback=initMap">
+</script>
 {% include 'homepage/lower_template.html' %}
