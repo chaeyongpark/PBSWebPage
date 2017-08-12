@@ -1,7 +1,7 @@
 {% load static %}
 
 {% include 'homepage/upper_template.html' %}
-
+{% if video|length > 0 %}
 <div class="col m12">
 	<h5>{{ main_video.title }}</h5>
 </div>
@@ -44,4 +44,7 @@
 		{% endfor %}
 	</ul>
 </div>
+{% else %}
+<div class="no-video"><p>동영상이 없습니다.</p></div>
+{% endif %}
 {% include 'homepage/lower_template.html' %}
