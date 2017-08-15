@@ -35,7 +35,6 @@ html {
 }
 
 body {
-	font-family: "Nanum Gothic", sans-serif;
 	background-color: #fafafa;
 	display: flex;
 	min-height: 100vh;
@@ -92,7 +91,6 @@ main {
 .dropdown-content > li {
 	text-align: center;
 }
-
 
 .dropdown-content {
 	z-index: 1;
@@ -154,6 +152,10 @@ main {
 	color: black;
 }
 
+.home-card {
+	overflow: hidden;
+}
+
 /* Video */
 .video-copyright {
 	text-align: right;
@@ -186,6 +188,7 @@ main {
 	text-align: center;
 	font-size: 20px;
 	color: #66665C;
+	padding-top: 100px;
 }
 
 /* Notice */
@@ -193,6 +196,11 @@ main {
 	text-align: right !important;
 	color: #757575 !important;
 	margin: 0 !important;
+}
+
+.notice-list-title {
+	margin-top: 0 !important;
+	margin-bottom: 0.2em !important;
 }
 
 .notice-title {
@@ -343,3 +351,29 @@ main {
 	padding-right: 0 !important;
 }
 
+
+/* Chart */
+.chart {
+	background-color: #fafafa;
+}
+.chart-title {
+	font-size: 1.3em !important;
+	font-weight: Bold !important;
+}
+
+.chart-name {
+	text-align: center;
+	font-size: 1.2em;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+.master {
+	font-size: 14px;
+	margin-right: 10px;
+}
+
+.sub-master {
+	font-size: 14px;
+	margin-right: 10px;
+}

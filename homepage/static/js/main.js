@@ -38,6 +38,21 @@ $.ajaxSetup({
         }
     }
 });
+
+// create a reference to the old `.html()` function
+var htmlOriginal = $.fn.html;
+
+// redefine the `.html()` function to accept a callback
+$.fn.html = function(html,callback){
+  // run the old `.html()` function with the first parameter
+  var ret = htmlOriginal.apply(this, arguments);
+  // run the callback (if it is defined)
+  if(typeof callback == "function"){
+    callback();
+  }
+  // make sure chaining is not broken
+  return ret;
+}
 ////////////
 
 const cstr = [
@@ -49,13 +64,17 @@ const cstr = [
 	"</p><p class=\"video-date\">",
 	"년 ",
 	"월 ",
-	"일</p></div></div></a></div>"
+	"일</p></div></div></a></div>",
+	"\"><div class=\"card video-card hoverable\"><div class=\"card-image\"><img src=\"https://graph.facebook.com/",
+	"/picture\"></div><div class=\"card-content\"><p>",
 ];
 
 const nstr = [
 	"<a href=\"/notice/?n=",
-	"\"class=\"collection-item\"><span class=\"menu grey-text text-darken-4\">",
-	"<br></span><p class=\"notice-date\">",
+	"\"class=\"collection-item\"><p class=\"notice-list-title\">",
+	"<span class=\"badge postech-orange white-text pulse\">New</span>",
+	"<span class=\"menu grey-text text-darken-4\">",
+	"</span></p><p class=\"notice-date\">",
 	"년 ",
 	"월 ",
 	"일 </p></a>"
@@ -91,8 +110,35 @@ if($('.navbar').length > 0){
 
 $(document).on('click', '.list_change', function () {
 	var page = $(this).attr('name');
-	ChangePageOfVideo(page, "list_change", "pbs_plus");
-	
+	var url = $('.a-black').attr('href').split('/');
+
+	$.post("/" + url[1] + "/", { next_page: page }, function (data) {
+		var card = $.map(data.video, function(l) {
+			var v = l.fields;
+			date = DateParser(v.date);
+			if (url[1] == "radio") {
+                return cstr[0] + url[1] + cstr[1] + l.pk + cstr[2] + data.now + cstr[9] + v.url + cstr[10] + v.title + cstr[5] + 
+					   date[0] + cstr[6] + date[1] + cstr[7] + date[2] + cstr[8];
+			} else {
+				return cstr[0] + url[1] + cstr[1] + l.pk + cstr[2] + data.now + cstr[3] + v.url + cstr[4] + v.title + cstr[5] + 
+					   date[0] + cstr[6] + date[1] + cstr[7] + date[2] + cstr[8];
+			}
+		});
+		$('#items').html(card).promise().done(function () {
+			setTimeout(function () {
+				$('.video-card').matchHeight();
+			}, 10);
+		});
+		var p = $.map(data.page, function (l) {
+			if (l == data.now) {
+				return "<li class=\"active postech-red\"><a href=\"\" class=\"list_change\" name=\"" + l + "\">" + l + "</a></li>";
+			} else {
+				return "<li><a href=\"\" class=\"list_change\" name=\"" + l + "\">" + l + "</a></li>";
+			}
+		});
+		$('#page-counter').html(p);
+	});
+
 	return false;
 });
 
@@ -100,10 +146,15 @@ $(document).on('click', '.list_change_notice', function () {
 	var page = $(this).attr('name');
 
 	$.post('/notice/', { next_page: page }, function (data) {
+		var i = 0;
 		var note = $.map(data.note, function(l) {
 			var n = l.fields;
 			date = DateParser(n.date);
-			return nstr[0] + l.pk + nstr[1] + n.title + nstr[2] + date[0] + nstr[3] + date[1] + nstr[4] + date[2] + nstr[5];
+			if (data.new[i++] == true) {
+				return nstr[0] + l.pk + nstr[1] + nstr[2] + nstr[3] + n.title + nstr[4] + date[0] + nstr[5] + date[1] + nstr[6] + date[2] + nstr[7];
+			} else {
+				return nstr[0] + l.pk + nstr[1] + nstr[3] + n.title + nstr[4] + date[0] + nstr[5] + date[1] + nstr[6] + date[2] + nstr[7];
+			}
 		});
 		$('#items').html(note);
 
@@ -121,29 +172,6 @@ $(document).on('click', '.list_change_notice', function () {
 	return false;
 });
 
-function ChangePageOfVideo(page, class_name, url) {
-	$.post("/" + url + "/", { next_page: page }, function (data) {
-		var card = $.map(data.video, function(l) {
-			var v = l.fields;
-			date = DateParser(v.date);
-			return cstr[0] + url + cstr[1] + l.pk + cstr[2] + data.now + cstr[3] + v.url + cstr[4] + v.title + cstr[5] + 
-				   date[0] + cstr[6] + date[1] + cstr[7] + date[2] + cstr[8];
-		});
-		$('#items').html(card);	
-		$('.video-card').matchHeight();
-
-		var p = $.map(data.page, function (l) {
-			if (l == data.now) {
-				return "<li class=\"active postech-red\"><a href=\"\" class=\""+ class_name +"\" name=\"" + l + "\">" + l + "</a></li>";
-			} else {
-				return "<li><a href=\"\" class=\"" + class_name + "\" name=\"" + l + "\">" + l + "</a></li>";
-			}
-		});
-		$('#page-counter').html(p);
-	});
-};
-
-// TODO delete 05 -> 5
 function DateParser(str) {
 	var d = str.split('-');
 	d[1] = d[1].replace(/(^0)/, "");
@@ -175,6 +203,19 @@ function initMap() {
 		map: map
 	});
 }
+
+function Resize() {
+	var rh = $('#rvideo').height()*0.91;
+
+	$('#ivideo').height(rh/2);
+	$('#rnote').height(rh/4);
+	$('#rsurvey').height(rh/4);
+}
+
+$(document).ready(Resize);
+$(window).resize(Resize);
+
 // Make same height of video cards
 $('.video-card').matchHeight();
-$('.video-card').matchHeight();
+$('.card-news').matchHeight();
+$('.chart').matchHeight();

@@ -19,11 +19,11 @@ Copyright by [Chaeyong Park](https://www.facebook.com/profile.php?id=10000316460
 
 ## TODO
 
-* Change normal logo to *responsive logo*.
+* **IMPORTANT** Change theme color
+* Change normal logo to **responsive logo**.
 * Change video play button.
 * Change video player using AJAX
 * Put image to notice page
 * Rearrange of footer content
 * Cardnews AJAX loading in order to loading more faster
 * Survey embeded page
-* *IMPORTANT* Change theme color

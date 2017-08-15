@@ -7,7 +7,7 @@
 </div>
 <div class="col m10 offset-m1 s12">
 	<div class="video-container hoverable">
-		<iframe width="853" height="480" src="http://www.youtube.com/embed/{{ main_video.url}}" frameborder="0" allowfullscreen></iframe>
+		<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fpostechpbs%2Fvideos%2F{{ main_video.url }}" width="850" height="345" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
 	</div>
 </div>
 <div class="col m12">
@@ -22,7 +22,7 @@
 	<a class="a-black" href="{{ current.link }}/?v={{ v.pk }}&p={{ now }}">
 		<div class="card video-card hoverable">
 			<div class="card-image">
-				<img src="https://img.youtube.com/vi/{{ v.url}}/mqdefault.jpg">
+				<img src="https://graph.facebook.com/{{ v.url }}/picture">
 			</div>
 			<div class="card-content">
 				<p>{{ v.title }}</p>

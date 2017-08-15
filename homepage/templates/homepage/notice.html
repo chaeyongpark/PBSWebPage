@@ -5,7 +5,12 @@
 	<div class="collection" id="items">
 		{% for n in note %}
 		<a href="{{ current.link }}/?n={{ n.pk }}" class="waves-effect waves-light collection-item">
-			<span class="menu grey-text text-darken-4">{{ n.title }}<br></span>
+			<p class="notice-list-title">
+				{% if n.delta is True %}
+				<span class="badge postech-orange white-text pulse">New</span>
+				{% endif %}
+				<span class="menu grey-text text-darken-4">{{ n.title }}</span>
+			</p>
 			<p class="notice-date">{{ n.date.year }}년 {{ n.date.month }}월 {{ n.date.day }}일</p>
 		</a>
 		{% endfor %}
