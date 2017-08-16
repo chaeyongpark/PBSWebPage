@@ -101,12 +101,21 @@ $(document).ready(function(){
     });
 });
 
-// For checking scroll, when navbar exist
-if($('.navbar').length > 0){
-    $(window).on("scroll load resize", function(){
-        checkScroll();
-    });
-}
+var prev_scroll = 0;
+$(window).on("scroll load resize", function(){
+    var nav_height = $('.navbar-pbs').height();
+    
+    if ($(window).scrollTop() - prev_scroll > 0) {
+        console.log("down");
+        $('.navbar-pbs').addClass("scrolled");
+    } else {
+        console.log("up");
+        $('.navbar-pbs').removeClass("scrolled");
+    }
+    prev_scroll = $(window).scrollTop();
+
+});
+
 
 $(document).on('click', '.list_change', function () {
 	var page = $(this).attr('name');
@@ -179,18 +188,6 @@ function DateParser(str) {
 	return d;
 };
 
-// Check whether scroll is on or not
-function checkScroll(){
-    var nav_height = $('.navbar').height();
-
-    if($(window).scrollTop() > nav_height){
-        $('.nav-wrapper').addClass("scrolled");
-        console.log("SCROLL");
-    } else {
-        $('.nav-wrapper').removeClass("scrolled");
-        console.log("UNSCROLL");
-    }
-};
 
 function initMap() {
 	var pbs_coord = {lat: 36.013123, lng: 129.321050};

@@ -20,7 +20,6 @@ Copyright by [Chaeyong Park](https://www.facebook.com/profile.php?id=10000316460
 ## TODO
 
 * **IMPORTANT** Change theme color
-* Change normal logo to **responsive logo**.
 * Change video play button.
 * Change video player using AJAX
 * Put image to notice page
