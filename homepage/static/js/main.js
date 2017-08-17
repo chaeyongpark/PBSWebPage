@@ -106,14 +106,12 @@ $(window).on("scroll load resize", function(){
     var nav_height = $('.navbar-pbs').height();
     
     if ($(window).scrollTop() - prev_scroll > 0) {
-        console.log("down");
         $('.navbar-pbs').addClass("scrolled");
-    } else {
-        console.log("up");
+        prev_scroll = $(window).scrollTop();
+    } else if (prev_scroll - $(window).scrollTop() > 20) {
         $('.navbar-pbs').removeClass("scrolled");
+        prev_scroll = $(window).scrollTop();
     }
-    prev_scroll = $(window).scrollTop();
-
 });
 
 
