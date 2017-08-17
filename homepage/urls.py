@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^orientation/$', ShowVideos.as_view(npk = 6, cpk = 10), name='orientation'),
     url(r'^meeting/$', ShowVideos.as_view(npk = 6, cpk = 11), name='meeting'),
     url(r'^notice/$', Notice.as_view(), name='notice'),
-    url(r'^survey/$', views.survey, name='survey'),
+    url(r'^survey/$', CommingSoon.as_view(npk = 7, cpk = 13), name='survey'),
     url(r'^board/$', CommingSoon.as_view(npk = 7, cpk = 14), name='comming'),
     url(r'^story/$', CommingSoon.as_view(npk = 7, cpk = 15), name='comming'),
 ]

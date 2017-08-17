@@ -41,6 +41,10 @@ body {
     flex-direction: column;
 }
 
+.section {
+    background-color: #fafafa;
+}
+
 main {
     flex: 1 0 auto;
 }
@@ -54,11 +58,15 @@ main {
 }
 
 .navbar-pbs {
+    background: #607d8b;
     -webkit-transition: all 0.4s ease-out;
     -ms-transition: all 0.4s ease-out;
-    transition: all 0.4s ease-out;  
+    transition: all 0.4s ease-out;
 }
 
+.page-footer {
+    background: #607d8b;
+}
 .navbar-pbs.scrolled > .nav-wrapper > .nav-left {
     margin-right: 0px;
     transition: all 0.4s ease-out;  
@@ -77,6 +85,12 @@ main {
 }
 
 .nav-left > li > a {
+    color: white;
+    font-weight: Bold;
+}
+
+.nav-right > li > a {
+    color: white;
     font-weight: Bold;
 }
 
@@ -87,9 +101,6 @@ main {
     transition: all 0.4s ease-out;  
 }
 
-.nav-right > li > a {
-    font-weight:Bold;
-}
 
 .navbar-pbs > .nav-wrapper > .brand-logo {
     z-index: 1;

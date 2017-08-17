@@ -1,6 +1,6 @@
 # PBS web page
 
-**POSTECH Broadcasting System** (or **PBS**) homepage source. 
+[POSTECH Broadcasting System](http://pbs.postech.ac.kr:9999) (or **PBS**) homepage source. 
 Copyright by [Chaeyong Park](https://www.facebook.com/profile.php?id=100003164601567).  
 
 ## Development environment
@@ -19,10 +19,18 @@ Copyright by [Chaeyong Park](https://www.facebook.com/profile.php?id=10000316460
 
 ## TODO
 
-* **IMPORTANT** Change theme color
-* Change video play button.
-* Change video player using AJAX
-* Put image to notice page
-* Rearrange of footer content
-* Cardnews AJAX loading in order to loading more faster
-* Survey embeded page
+* Design
+	* **IMPORTANT** change theme color
+	* Rearrange of footer content
+* Video
+	* Change video play button.
+	* Change video player using AJAX
+* Notice
+	* Put image to notice page
+* CardNews
+	* Cardnews AJAX loading in order to loading more faster
+	* Make cardnews 100% width
+* Survey
+	* Survey embeded page
+* Remain page
+	* Board
