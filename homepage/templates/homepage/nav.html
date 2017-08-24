@@ -28,8 +28,15 @@
 	<form action="/search" method="get">
     <div class="modal-content">
 		<div class="row">
+			<div class="input-field col s6">
+				<select name="f">
+					<option value="t">제목</option>
+					<option value="tc">제목+내용</option>
+				</select>
+				<label>검색필터</label>
+			</div>
         	<div class="input-field col s12">
-        		<input id="search_elem" type="text" class="validate" name="search_elem">
+        		<input id="search_elem" type="text" class="validate search-auto" name="search_elem">
           		<label for="search_elem">searching videos</label>
 			</div>
         </div>

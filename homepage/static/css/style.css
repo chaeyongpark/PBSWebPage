@@ -129,6 +129,18 @@ main {
     margin-right: 5px;
 }
 
+.autocomplete-content > li {
+    text-align: left;
+}
+
+.select-dropdown > li > span {
+    color: #66665c;
+}
+
+.modal-footer > button {
+    margin-right: 5px !important;
+}
+
 .tabs .indicator {
     background-color: #C80150 !important;
 }

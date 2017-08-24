@@ -115,12 +115,12 @@ $(document).ready(function(){
         belowOrigin: true,
         stopPropagation: false
     });
-    
+
     $('.video-card').matchHeight();
     $('.card-news').matchHeight();
     $('.chart').matchHeight();
+    $('select').material_select();
 
-    console.log($(window).width());
     if ($(window).width() > 450) {
         $('.main-banner').height($(window).height()*0.65);
     }
@@ -132,6 +132,11 @@ $(document).ready(function(){
 $('#search-btn').click(function(e) {
     e.preventDefault();
     $('#search-modal').modal('open');
+
+    // Auto complete
+    $('input.search-auto').autocomplete({
+        data: auto_data 
+    });
 });
 
 /**

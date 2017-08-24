@@ -34,3 +34,6 @@ Copyright by [Chaeyong Park](https://www.facebook.com/profile.php?id=10000316460
 	* Survey embeded page
 * Remain page
 	* Board
+* Search
+    * Date filtering
+    * blocking blank search
