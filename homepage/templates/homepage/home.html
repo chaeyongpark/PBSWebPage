@@ -7,6 +7,11 @@
     <body>
         {% include 'homepage/nav.html' %}
         <div class="main">
+			<div class="row">
+                <div class="show-pic col s12">
+					<div class="main-banner" style="background-image: url('{% static 'img/banner/main.png' %}')"></div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col s12 m12 l9" id="rvideo">
                     <div class="video-container hoverable">
@@ -36,27 +41,30 @@
 					</a>
                 </div>
                 <div class="col s12 m4 l12">
-                    <div class="card hoverable home-card" id="rnote">
-						<div class="card-content">
-							<span class="card-title">공지사항</span>
-							<p>{{ rnote.title }}</p>
-							<p class="notice-date">{{ rnote.date.year }}년 {{ rnote.date.month }}월 {{ rnote.date.day }}일</p>
-						</div> 
-					</div>
+					<a class="a-black" href="notice/?n={{ rnote.pk }}">
+                    	<div class="card hoverable home-card" id="rnote">
+							<div class="card-content">
+								<span class="card-title">공지사항</span>
+								<p>{{ rnote.title }}</p>
+								<p class="notice-date">{{ rnote.date.year }}년 {{ rnote.date.month }}월 {{ rnote.date.day }}일</p>
+							</div>
+						</div>
+					</a>
                 </div>
                 <div class="col s12 m4 l12">
                     <div class="card hoverable home-card" id="rsurvey">
 						<div class="card-content">
 							<span class="card-title">설문조사</span>
 							<p>{{ rsurvey.title }}</p>
+							<p class="notice-date">{{ rsurvey.date.year }}년 {{ rsurvey.date.month }}월 {{ rsurvey.date.day }}일</p>
 						</div> 
                     </div>
                 </div>
 				</div>
 			</div>
 			<div class="row">
-                <div class="show-pic col s12" height="500px">
-                    <div class="slider">
+                <div class="show-pic col s12">
+                    <div class="slider" id="islider">
                         <ul class="slides">
                             <li><img src="{% static 'img/who_am_i/pbs_photo2.jpg' %}"></li>
                             <li><img src="{% static 'img/who_am_i/pbs_photo3.jpg' %}"></li>

@@ -7,11 +7,17 @@
 </div>
 <div class="col m10 offset-m1 s12">
 	<div class="video-container hoverable">
+		{% if main_video.is_youtube is True %}
 		<iframe width="853" height="480" src="http://www.youtube.com/embed/{{ main_video.url}}" frameborder="0" allowfullscreen></iframe>
+		{% else %}
+		<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fpostechpbs%2Fvideos%2F{{ main_video.url }}" width="850" height="345" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+		{% endif %}
 	</div>
 </div>
 <div class="col m12">
+	{% autoescape off %}
 	<p>{{ main_video.explain }}</p>
+	{% endautoescape %}		
 </div>
 <div class="video-copyright col s12">
 	<p>© 포항공과대학교방송국PBS(http://pbs.postech.ac.kr)<br>무단전재 및 재배포금지 | <a class="postech-orange-text" href="/contact">저작권문의</a></p>
@@ -22,7 +28,11 @@
 	<a class="a-black" href="{{ current.link }}/?v={{ v.pk }}&p={{ now }}">
 		<div class="card video-card hoverable">
 			<div class="card-image">
+				{% if v.is_youtube is True %}
 				<img src="https://img.youtube.com/vi/{{ v.url}}/mqdefault.jpg">
+				{% else %}
+				<img src="https://graph.facebook.com/{{ v.url }}/picture">
+				{% endif %}
 			</div>
 			<div class="card-content">
 				<p>{{ v.title }}</p>

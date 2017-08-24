@@ -17,39 +17,6 @@
 </div>
 {% endfor %}
 
-<!-- Dummy card for testing -->
-{% for c in card %}
-<div class="col s12 m6 l4">
-		<a class="a-black" href="{{ current.link }}/?c={{ c.pk }}">
-		<div class="card card-news hoverable">
-			<div class="card-image">
-				<img src="/media/{{ c.images.all.0.image }}">
-			</div>
-			<div class="card-content">
-				<p>{{ c.title }}</p>
-				<p class="video-date">{{ c.date.year }}년 {{c.date.month }}월 {{ c.date.day }}일</p>
-			</div>
-		</div>
-	</a>
-</div>
-{% endfor %}
-{% for c in card %}
-<div class="col s12 m6 l4">
-		<a class="a-black" href="{{ current.link }}/?c={{ c.pk }}">
-		<div class="card card-news hoverable">
-			<div class="card-image">
-				<img src="/media/{{ c.images.all.0.image }}">
-			</div>
-			<div class="card-content">
-				<p>{{ c.title }}</p>
-				<p class="video-date">{{ c.date.year }}년 {{c.date.month }}월 {{ c.date.day }}일</p>
-			</div>
-		</div>
-	</a>
-</div>
-{% endfor %}
-<!-- Dummy card for testing -->
-
 <div class="col s12">
 	<ul class="pagination center" id="page-counter">
 		{% for p in page %}

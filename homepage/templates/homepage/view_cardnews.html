@@ -3,17 +3,17 @@
 {% include 'homepage/upper_template.html' %}
 <div class="col s12">
     <div class="notice-title">
-        <h5>{{ card.title }}</h5>
-        <p class="note-date">{{ card.date.year }}년 {{ card.date.month }}월 {{ card.date.day }}일</p>
+        <h5>{{ cardinfo.title }}</h5>
+        <p class="note-date">{{ cardinfo.date.year }}년 {{ cardinfo.date.month }}월 {{ cardinfo.date.day }}일</p>
     </div>
     <div class="col l8 offset-l2 m10 offset-m1 s12 cardnews-content hide-on-med-and-down">
-        {% for i in card.images.all %}
+        {% for i in card %}
             <img class="responsive-img" src="/media/{{ i.image }}">
         {% endfor %}
     </div>
     <div class="card-news-mobile col s12 cardnews-content hide-on-large-only">
         <div class="carousel carousel-slider center">
-            {% for i in card.images.all %}
+            {% for i in card %}
             <div class="carousel-item">
                 <img class="responsive-img" src="/media/{{ i.image }}">
             </div>

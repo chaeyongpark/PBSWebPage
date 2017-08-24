@@ -32,12 +32,12 @@
 
 html {
     position: relative;
+    min-height: 100vh !important;
 }
 
 body {
     background-color: #fafafa;
     display: flex;
-    min-height: 100vh;
     flex-direction: column;
 }
 
@@ -67,6 +67,7 @@ main {
 .page-footer {
     background: #607d8b;
 }
+
 .navbar-pbs.scrolled > .nav-wrapper > .nav-left {
     margin-right: 0px;
     transition: all 0.4s ease-out;  
@@ -84,6 +85,13 @@ main {
     transition: all 0.4s ease-out;  
 }
 
+.nav-right {
+    position: absolute;
+    left: 50%;
+    margin-left: 60px;
+    transition: all 0.4s ease-out;  
+}
+
 .nav-left > li > a {
     color: white;
     font-weight: Bold;
@@ -94,14 +102,6 @@ main {
     font-weight: Bold;
 }
 
-.nav-right {
-    position: absolute;
-    left: 50%;
-    margin-left: 60px;
-    transition: all 0.4s ease-out;  
-}
-
-
 .navbar-pbs > .nav-wrapper > .brand-logo {
     z-index: 1;
     opacity: 1;
@@ -109,8 +109,32 @@ main {
 }
 
 .navbar-pbs.scrolled > .nav-wrapper > .brand-logo {
+    z-index: 1;
     opacity: 0;
     transition: all 0.4s ease-out;  
+}
+
+.search {
+    position: absolute;
+    right: 30px;
+}
+
+.search-text {
+    width: 90%;
+    max-width: 500px !important;
+}
+
+.search-res-text {
+    text-align: right;
+    margin-right: 5px;
+}
+
+.tabs .indicator {
+    background-color: #C80150 !important;
+}
+
+.tab-section {
+    padding-top: 0 !important;
 }
 
 /* Dropdown menu */
@@ -126,6 +150,12 @@ main {
 
 .dropdown-content {
     z-index: 1;
+    overflow: visible !important;
+}
+
+.second-dropdown {
+    margin-left: 235px !important;
+    margin-top: -50px !important;
 }
 
 .show-pic {
@@ -144,6 +174,7 @@ main {
     -ms-filter: sepia(70%) grayscale(40%) brightness(60%);
     filter: sepia(70%) grayscale(30%) brightness(60%);
 }
+
 
 .parallax-header {
     color: #FFFFFF;
@@ -188,6 +219,18 @@ main {
     overflow: hidden;
 }
 
+.main-banner {
+    width: 100%;
+    height: 550px;
+    background-size: cover;
+    background-position: center;
+}
+.main-shadow {
+    background-color: black;
+    opacity: 0.5;
+    z-index: 30;
+}
+
 /* Video */
 .video-copyright {
     text-align: right;
@@ -217,6 +260,13 @@ main {
 }
 
 .no-video {
+    text-align: center;
+    font-size: 20px;
+    color: #66665C;
+    padding-top: 100px;
+}
+
+.no-search {
     text-align: center;
     font-size: 20px;
     color: #66665C;
@@ -370,6 +420,12 @@ main {
 
     .history-left {
         margin-bottom: 10px;
+    }
+}
+
+@media (max-width : 450px) {
+    .main-banner {
+        height: 200px;
     }
 }
 

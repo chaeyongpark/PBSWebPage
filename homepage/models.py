@@ -7,6 +7,7 @@ class Category(models.Model):
     name = models.CharField(max_length = 32)
     explain = models.CharField(max_length = 64, null = True, default = 'this is body', blank = True)
     link = models.CharField(max_length = 16, default='/')
+    order = models.IntegerField(default = 0)
 
     def __str__(self):
         return self.name

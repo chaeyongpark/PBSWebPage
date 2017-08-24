@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    {% include 'homepage/header.html' %}    
+    <body>
+        {% include 'homepage/nav.html' %}
+		{% csrf_token %}
+        <div class="main">
+			<div class="parallax-container">
+                <div class="parallax">
+                    <img src="{% static 'img/banner/info.jpg' %}" class="vintage">
+                </div>
+                <div class="container">
+                    <h1 class="parallax-header center white-text"><br>{{ current.name }}</h1>
+                </div>
+            </div>
+            <div class="section page tab-section">
+				<div class="row">
+					<div class="col m10 offset-m1 s12" style="padding-left:0; padding-right:0">
+						<ul class="tabs">
+							<li class="tab col s6">
+								<a class="active postech-red-text" href="#video-res">
+								비디오</a>
+							</li>
+							<li class="tab col s6">
+								<a class="postech-red-text" href="#notice-res">
+								공지사항</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col m10 offset-m1 s12" id="video-res">
+						{% if vres|length > 0 %}
+						<p class="search-res-text">검색결과: &emsp;<b>{{ vres|length }}</b>개의 게시물</p>
+						<div class="videos row" id="items">
+						{% for v in vres %}
+						<div class="col s12 m6 l4">
+							<a class="a-black" href="{{ v.category.link }}/?v={{ v.pk }}&p=1">
+								<div class="card video-card hoverable">
+									<div class="card-image">
+										{% if v.is_youtube is True %}
+										<img src="https://img.youtube.com/vi/{{ v.url}}/mqdefault.jpg">
+										{% else %}
+										<img src="https://graph.facebook.com/{{ v.url }}/picture">
+										{% endif %}
+									</div>
+									<div class="card-content">
+										<p>{{ v.title }}</p>
+										<p class="video-date">{{ v.date.year }}년 {{v.date.month }}월 {{ v.date.day }}일</p>
+									</div>
+								</div>
+							</a>
+						</div>
+						{% endfor %}
+						</div>
+						{% else %}
+						<p class="no-search">동영상이 없습니다.</p>
+						{% endif %}
+					</div>
+					<div class="col m6 offset-m3 s12" id="notice-res">
+						{% if nres|length > 0 %}
+						<p class="search-res-text">검색결과: &emsp;<b>{{ nres|length }}</b>개의 게시물</p>
+						<div class="collection" id="items">
+							{% for n in nres %}
+							<a href="/notice/?n={{ n.pk }}" class="waves-effect waves-light collection-item">
+								<p class="notice-list-title">
+									{% if n.delta is True %}
+									<span class="badge postech-orange white-text pulse">New</span>
+									{% endif %}
+									<span class="menu grey-text text-darken-4">{{ n.title }}</span>
+								</p>
+								<p class="notice-date">{{ n.date.year }}년 {{ n.date.month }}월 {{ n.date.day }}일</p>
+							</a>
+							{% endfor %}
+						</div>
+						{% else %}
+						<p class="no-search">게시물이 없습니다.</p>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+        </div>
+        {% include 'homepage/footer.html' %}
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>
