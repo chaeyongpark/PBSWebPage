@@ -1,6 +1,7 @@
 {% load static %}
 
 {% include 'homepage/upper_template.html' %}
+<div class="cardnews row" id="items">
 {% for c in card %}
 <div class="col s12 m6 l4">
 		<a class="a-black" href="{{ current.link }}/?c={{ c.pk }}">
@@ -16,7 +17,7 @@
 	</a>
 </div>
 {% endfor %}
-
+</div>
 <div class="col s12">
 	<ul class="pagination center" id="page-counter">
 		{% for p in page %}
