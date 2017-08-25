@@ -136,7 +136,7 @@ $('#search-btn').click(function(e) {
     // Auto complete
     $('input.search-auto').autocomplete({
         data: auto_data 
-    });
+   	});
 });
 
 /**
