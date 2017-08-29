@@ -69,7 +69,6 @@ $(".button-collapse").sideNav();
  * When page loading finish, this function is called
  */
 $(document).ready(function(){
-    $('.brand-logo').css('padding-top', $('.navbar-pbs').height() - 50);
     if($(window).width() < 450) {
         $('#islider').slider({ height: 300});
     } else {
@@ -82,7 +81,8 @@ $(document).ready(function(){
     $('.dropdown-button').dropdown({
         constrainWidth: false,
         hover: true,
-        belowOrigin: true
+        belowOrigin: true,
+        stopPropagation: false
     });
 
     $('.video-card').matchHeight();
