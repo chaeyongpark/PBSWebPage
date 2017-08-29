@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    {% include 'homepage/header.html' %}    
+    <body>
+        {% include 'homepage/nav.html' %}
+		{% csrf_token %}
+        <div class="main">
+            <div class="parallax-container">
+                <div class="parallax">
+                    <img src="/static/img/banner/radio.jpg" class="vintage">
+                </div>
+                <div class="container">
+                    <h1 class="parallax-header center white-text"><br>{{ current.name }}</h1>
+                </div>
+            </div>
+            <div class="section page">
+                <div class="row">
+					<div class="col l2 offset-l1 m3 hide-on-small-only">
+						<ul class="collapsible popout" data-collapsible="accordion">
+							{% for i in menu %}
+                            {% if i.order == 0 %}
+                            <li>
+                                {% if current.order < 2 %}
+								<div class="collapsible-header menu active">해맞이한마당</div>
+                                {% else %}
+								<div class="collapsible-header menu">해맞이한마당</div>
+                                {% endif %}
+								<a class="no-h collapsible-body cmenu" href="{{ i.link }}">{{ i.name }}</a>
+                            {% elif i.order == 1 %}
+								<a class="no-h collapsible-body cmenu" href="{{ i.link }}">{{ i.name }}</a>
+                            </li>
+                            {% elif i.order == 2 %}
+                            <li>
+                                {% if current.order < 4 %}
+								<div class="collapsible-header menu active">POSTECH-KAIST학생대제전</div>
+                                {% else %}
+								<div class="collapsible-header menu">POSTECH-KAIST학생대제전</div>
+                                {% endif %}
+								<a class="no-h collapsible-body cmenu" href="{{ i.link }}">{{ i.name }}</a>
+                            {% elif i.order == 3 %}
+								<a class="no-h collapsible-body cmenu" href="{{ i.link }}">{{ i.name }}</a>
+                            </li>
+                            {% else %}
+                                {% if i.name == current.name %}
+                                <li>
+                                    <div class="collapsible-header menu active">{{ i.name }}</div>
+                                </li>
+                                {% else %}
+                                <li>    
+                                    <a class="no-h" href="{{ i.link }}"><div class="collapsible-header menu">{{ i.name }}</div></a>
+                                </li>
+                                {% endif %}
+                            {% endif %}
+							{% endfor %}
+						</ul>
+					</div>
+                    <div class="col l7 m9 s12 row">
+                        <div class="container-header hide-on-small-only">
+                            <span class="board-title">{{ current.name }}</span><span class="board-comment hide-on-small-only">{{ current.explain }}</span>
+                        </div>

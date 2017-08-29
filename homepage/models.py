@@ -58,3 +58,23 @@ class CardNews(models.Model):
 
     def __str__(self):
         return self.title
+
+
+@python_2_unicode_compatible
+class Survey(models.Model):
+    title = models.CharField(max_length = 64)
+    date = models.DateField(blank = True, null = True)
+    content = models.CharField(max_length = 64)
+
+    def __str__(self):
+        return self.title
+
+@python_2_unicode_compatible
+class Board(models.Model):
+    title = models.CharField(max_length = 64)
+    date = models.DateField(blank = True, null = True)
+    content = models.TextField(default='no')
+
+    def __str__(self):
+        return self.title
+

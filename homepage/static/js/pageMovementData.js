@@ -1,4 +1,17 @@
 /**
+ * AJAX POST card html tag string list 
+ *
+ * Copyright (C) Chaeyong Park, Inc - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ *
+ * Written by Chaeyong Park <pcy8201@postech.ac.kr>, POSTECH, 2017.08.23
+ *
+ * Github: github.com/pcy8201
+ * Linkedin: www.linkedin.com/in/chaeyong
+ */
+
+/**
  * Video card string
  */
 const cstr = [

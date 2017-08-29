@@ -44,6 +44,7 @@ $.ajaxSetup({
 
 // create a reference to the old `.html()` function
 var htmlOriginal = $.fn.html;
+
 /**
  * redefine the `.html()` function to accept a callback
  */
@@ -57,7 +58,6 @@ $.fn.html = function(html,callback){
   // make sure chaining is not broken
   return ret;
 }
-////////////
 
 /**
  * Mobile side navbar menu
@@ -69,6 +69,7 @@ $(".button-collapse").sideNav();
  * When page loading finish, this function is called
  */
 $(document).ready(function(){
+    $('.brand-logo').css('padding-top', $('.navbar-pbs').height() - 50);
     if($(window).width() < 450) {
         $('#islider').slider({ height: 300});
     } else {
@@ -81,8 +82,7 @@ $(document).ready(function(){
     $('.dropdown-button').dropdown({
         constrainWidth: false,
         hover: true,
-        belowOrigin: true,
-        stopPropagation: false
+        belowOrigin: true
     });
 
     $('.video-card').matchHeight();
@@ -91,10 +91,24 @@ $(document).ready(function(){
     $('select').material_select();
 
     if ($(window).width() > 450) {
-        $('.main-banner').height($(window).height()*0.65);
+        $('.main-banner').height($(window).height()*0.35);
     }
 });
 
+/**
+ * When window re-sizing, call this function
+ */
+window.onload = Resize;
+$(window).resize(Resize);
+function Resize() {
+    if ($(window).width() > 450) {
+        var h = $('#ivideo').height() > $('#ivideo2').height() ? $('#ivideo').height() : $('#ivideo2').height();
+        $('#ivideo').height(h); 
+        $('#ivideo2').height(h);
+        $('#rsurvey').height(h*0.96/2);
+        $('#rnote').height(h*0.96/2);
+    }
+}
 /**
  * Pop-up search modal
  */
@@ -211,7 +225,8 @@ $(document).on('click', '.list_change_card', function () {
         var cardnews = $.map(data.card, function(l) {
             var n = l.fields;
             date = DateParser(n.date);
-            return cnstr[0] + l.pk + cnstr[1] + data.thumbnail[i++] + cnstr[2] + n.title + cnstr[3] + date[0] + cnstr[4] + date[1] + cnstr[5] + date[2] + cnstr[6];
+            return cnstr[0] + l.pk + cnstr[1] + data.thumbnail[i++] + cnstr[2] + n.title + 
+                   cnstr[3] + date[0] + cnstr[4] + date[1] + cnstr[5] + date[2] + cnstr[6];
         });
          $('#items').html(cardnews).promise().done(function () {
             setTimeout(function () {
@@ -233,8 +248,7 @@ $(document).on('click', '.list_change_card', function () {
     return false;
 });
 
-$(document).ready(Resize);
-$(window).resize(Resize);
+//$(document).ready(Resize);
 
 /**
  * Date parser
@@ -262,20 +276,4 @@ function initMap() {
         map: map
     });
 }
-
-/**
- * When window re-sizing, call this function
- */
-function Resize() {
-    var rh = $('#rvideo').height()*0.91;
-    
-    if ($(window).width() > 975) {
-        $('#ivideo').height(rh/2);
-        $('#rnote').height(rh/4);
-        $('#rsurvey').height(rh/4);
-    } else if ($(window).width() > 585) {
-       $('.home-card').matchHeight();
-    }  
-}
-
 

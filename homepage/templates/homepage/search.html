@@ -19,13 +19,17 @@
 				<div class="row">
 					<div class="col m10 offset-m1 s12" style="padding-left:0; padding-right:0">
 						<ul class="tabs">
-							<li class="tab col s6">
+							<li class="tab col s4">
 								<a class="active postech-red-text" href="#video-res">
 								비디오</a>
 							</li>
-							<li class="tab col s6">
+							<li class="tab col s4">
 								<a class="postech-red-text" href="#notice-res">
 								공지사항</a>
+							</li>
+                            <li class="tab col s4">
+								<a class="postech-red-text" href="#survey-res">
+								설문조사</a>
 							</li>
 						</ul>
 					</div>
@@ -74,9 +78,29 @@
 							{% endfor %}
 						</div>
 						{% else %}
-						<p class="no-search">게시물이 없습니다.</p>
+						<p class="no-search">공지사항이 없습니다.</p>
 						{% endif %}
 					</div>
+                    <div class="col m6 offset-m3 s12" id="survey-res">
+						{% if sres|length > 0 %}
+						<p class="search-res-text">검색결과: &emsp;<b>{{ sres|length }}</b>개의 게시물</p>
+						<div class="collection" id="items">
+							{% for n in sres %}
+							<a href="/survey/?n={{ n.pk }}" class="waves-effect waves-light collection-item">
+								<p class="notice-list-title">
+									{% if n.delta is True %}
+									<span class="badge postech-orange white-text pulse">New</span>
+									{% endif %}
+									<span class="menu grey-text text-darken-4">{{ n.title }}</span>
+								</p>
+								<p class="notice-date">{{ n.date.year }}년 {{ n.date.month }}월 {{ n.date.day }}일</p>
+							</a>
+							{% endfor %}
+						</div>
+						{% else %}
+						<p class="no-search">설문조사가 없습니다.</p>
+						{% endif %}
+                    </div>
 				</div>
 			</div>
         </div>

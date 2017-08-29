@@ -1,8 +1,17 @@
 {% load static %}
 
 {% include 'homepage/upper_template.html' %}
-<div class="col s12">
-		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdbdaHdPVS9jwasbFLv4jLjTKG8CEqhxHehXrVDAwWdLfLHJg/viewform?embedded=true" 
-		width="100%" height=1000 frameborder=0 marginheight=0 marginwidth=0></iframe>
+<div class="col s12 notice-wrapper">
+	<div class="notice-title">
+		<h5>{{ note.title }}</h5>
+		<p class="note-date">{{ note.date.year }}년 {{ note.date.month }}월 {{ note.date.day }}일</p>
+	</div>
+	<div class="col s12 notice-content" style="padding-left: 0; padding-right: 0">
+        <iframe src="https://docs.google.com/forms/d/e/{{ note.content }}/viewform?embedded=true" 
+            width="100%" height=1000 frameborder=0 marginheight=0 marginwidth=0></iframe>
+	</div>
+</div>
+<div class="fixed-action-btn" style="bottom: 20px; right: 20px">
+	<a href="/survey" class="waves-effect waves-light btn-large btn-floating postech-red" ><i class="material-icons">menu</i></a>
 </div>
 {% include 'homepage/lower_template.html' %}

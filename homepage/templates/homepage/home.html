@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col s12 m12 l9" id="rvideo">
+                <div class="col s12" id="rvideo">
                     <div class="video-container hoverable">
 						{% if rvideo.is_youtube is True %}
                         <iframe width="853" height="480" src="http://www.youtube.com/embed/{{ rvideo.url}}" frameborder="0" allowfullscreen></iframe>
@@ -22,8 +22,9 @@
 						{% endif %}
                     </div>
                 </div>
-				<div class="col l3 m12">
-                <div class="col s12 m4 l12">
+            </div>
+            <div class="row">
+                <div class="col s6 m4">
 					<a class="a-black" href="{{ ivideo.category.link }}/?v={{ ivideo.pk }}&p=1">
                     	<div class="card hoverable home-card" id="ivideo">
 							<div class="card-image">
@@ -33,15 +34,32 @@
 								<img src="https://graph.facebook.com/{{ ivideo.url }}/picture">
 								{% endif %}
 							</div>
-							<div class="card-content">
-								<span class="card-title">[{{ ivideo.category }}] {{ ivideo.title }}</span>
-								<p class="notice-date">{{ rnote.date.year }}년 {{ rnote.date.month }}월 {{ rnote.date.day }}일</p>
+							<div class="card-content home-content">
+								<span class="card-title home-title">[{{ ivideo.category }}] {{ ivideo.title }}</span>
+								<p class="notice-date">{{ ivideo.date.year }}년 {{ ivideo.date.month }}월 {{ ivideo.date.day }}일</p>
 							</div>
                     	</div>
 					</a>
                 </div>
-                <div class="col s12 m4 l12">
-					<a class="a-black" href="notice/?n={{ rnote.pk }}">
+                <div class="col s6 m4">
+					<a class="a-black" href="{{ ivideo2.category.link }}/?v={{ ivideo2.pk }}&p=1">
+                    	<div class="card hoverable home-card" id="ivideo2">
+							<div class="card-image">
+								{% if ivideo2.is_youtube is True %}
+								<img src="https://img.youtube.com/vi/{{ ivideo2.url}}/mqdefault.jpg">
+								{% else %}
+								<img src="https://graph.facebook.com/{{ ivideo2.url }}/picture">
+								{% endif %}
+							</div>
+							<div class="card-content home-content">
+								<span class="card-title home-title">[{{ ivideo2.category }}] {{ ivideo2.title }}</span>
+								<p class="notice-date">{{ ivideo2.date.year }}년 {{ ivideo2.date.month }}월 {{ ivideo2.date.day }}일</p>
+							</div>
+                    	</div>
+					</a>
+                </div>
+                <div class="col s12 m4">
+					<a class="a-black" href="/notice/?n={{ rnote.pk }}">
                     	<div class="card hoverable home-card" id="rnote">
 							<div class="card-content">
 								<span class="card-title">공지사항</span>
@@ -50,17 +68,16 @@
 							</div>
 						</div>
 					</a>
+                    <a class="a-black" href="/survey/?n={{ rsurvey.pk }}">
+                        <div class="card hoverable home-card" id="rsurvey">
+                            <div class="card-content">
+                                <span class="card-title">설문조사</span>
+                                <p>{{ rsurvey.title }}</p>
+                                <p class="notice-date">{{ rsurvey.date.year }}년 {{ rsurvey.date.month }}월 {{ rsurvey.date.day }}일</p>
+                            </div> 
+                        </div>
+                    </a>
                 </div>
-                <div class="col s12 m4 l12">
-                    <div class="card hoverable home-card" id="rsurvey">
-						<div class="card-content">
-							<span class="card-title">설문조사</span>
-							<p>{{ rsurvey.title }}</p>
-							<p class="notice-date">{{ rsurvey.date.year }}년 {{ rsurvey.date.month }}월 {{ rsurvey.date.day }}일</p>
-						</div> 
-                    </div>
-                </div>
-				</div>
 			</div>
 			<div class="row">
                 <div class="show-pic col s12">

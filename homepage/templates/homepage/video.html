@@ -1,6 +1,11 @@
 {% load static %}
 
+{% if npk is not 6 %}
 {% include 'homepage/upper_template.html' %}
+{% else %}
+{% include 'homepage/upper_template_pip.html' %}
+{% endif %}
+
 {% if video|length > 0 %}
 <div class="col m12">
 	<h5>{{ main_video.title }}</h5>

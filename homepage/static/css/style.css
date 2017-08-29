@@ -1,8 +1,5 @@
-@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 @font-face {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-style: normal;
-    font-weight: normal;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 /* POSTECH Color */
@@ -225,6 +222,10 @@ main {
     font-weight: Bold !important;
 }
 
+.cmenu {
+    padding: 20px 0 20px 20px !important;
+}
+
 .no-h {
     color: black;
 }
@@ -253,6 +254,16 @@ main {
     background-color: black;
     opacity: 0.5;
     z-index: 30;
+}
+
+@media (max-width : 450px) {
+    .home-content {
+        padding: 12px !important;
+    } 
+    .home-title {
+        font-size: 12px !important;
+        line-height: 14px !important;
+    }
 }
 
 /* Video */
@@ -298,6 +309,11 @@ main {
 }
 
 /* Notice */
+.notice-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .notice-date {
     text-align: right !important;
     color: #757575 !important;
@@ -336,6 +352,10 @@ main {
 .contact-title {
     color: #a1887f;
     font-weight: Bold;
+}
+
+.contact-content {
+    font-size: 17px !important;
 }
 
 .map {
