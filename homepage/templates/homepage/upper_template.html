@@ -9,7 +9,7 @@
         <div class="main">
             <div class="parallax-container">
                 <div class="parallax">
-                    <img src="/static/img/banner/radio.jpg" class="vintage">
+                    <img src="/static/img/banner/{{ banner }}.jpg" class="vintage">
                 </div>
                 <div class="container">
                     <h1 class="parallax-header center white-text"><br>{{ current.name }}</h1>
@@ -22,7 +22,7 @@
 							{% for i in menu %}
 							{% if i.name == current.name %}
 							<li>
-								<div class="collapsible-header menu active">{{ i.name }}</div>
+                                <a class="no-h collapsible-header menu active" href="{{ i.link }}">{{ i.name }}</a>
 							</li>
 							{% else %}
 							<li>    

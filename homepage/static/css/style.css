@@ -1,51 +1,41 @@
-@font-face {
-    font-family: 'Nanum Gothic', sans-serif;
-}
-
 /* POSTECH Color */
 .postech-red {
     background-color: #C80150 !important
 }
-
 .postech-red-text{
     color: #C80150 !important
 }
-
 .postech-orange {
     background-color: #FFB300 !important
 }
-
 .postech-orange-text{
     color: #FFB300 !important
 }
-
 .postech-gray {
     background-color: #66665C !important
 }
-
 .postech-gray-text{
     color: #66665C !important
 }
-
 html {
     position: relative;
     min-height: 100vh !important;
 }
-
 body {
+    font-family: "Noto Sans KR", sans-serif;
     background-color: #fafafa;
     display: flex;
     flex-direction: column;
 }
-
 .section {
     background-color: #fafafa;
 }
-
 main {
     flex: 1 0 auto;
 }
-
+.row {
+    margin-bottom: 4px !important;
+}
 /* Navbar */
 .navbar-pbs.scrolled{
     background: rgba(0, 0, 0, 0.8) !important;
@@ -53,143 +43,122 @@ main {
     -ms-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;  
 }
-
 .navbar-pbs {
     background: #607d8b;
     -webkit-transition: all 0.4s ease-out;
     -ms-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;
 }
-
 .page-footer {
     background: #607d8b;
 }
-
 .navbar-pbs.scrolled > .nav-wrapper > .nav-left {
     margin-right: 0px;
     transition: all 0.4s ease-out;  
 }
-
 .navbar-pbs.scrolled > .nav-wrapper > .nav-right {
     margin-left: 0px;
     transition: all 0.4s ease-out;  
 }
-
 .nav-left {
     position: absolute;
     right: 50%;
     margin-right: 60px;
     transition: all 0.4s ease-out;  
 }
-
 .nav-right {
     position: absolute;
     left: 50%;
     margin-left: 60px;
     transition: all 0.4s ease-out;  
 }
-
 .nav-left > li > a {
     color: white;
     font-weight: Bold;
 }
-
 .nav-right > li > a {
     color: white;
     font-weight: Bold;
 }
-
 .navbar-pbs > .nav-wrapper > .brand-logo {
     z-index: 1;
     opacity: 1;
     padding-top: 14px;
     transition: all 0.4s ease-out;
 }
-
 .navbar-pbs.scrolled > .nav-wrapper > .brand-logo {
     z-index: 1;
     opacity: 0;
     padding-top: 14px;
     transition: all 0.4s ease-out;
 }
-
 /* Search */
 .search {
     position: absolute;
     right: 30px;
 }
-
 .search-text {
     width: 90%;
     max-width: 500px !important;
 }
-
 .search-res-text {
     text-align: right;
     margin-right: 5px;
 }
-
 .autocomplete-content > li {
     text-align: left;
 }
-
-/* label focus color */
 .input-field input[type=text]:focus + label {
     color: #C80150 !important;
 }
-
-/* label underline focus color */
 .input-field input[type=text]:focus {
     border-bottom: 1px solid #C80150 !important;
     box-shadow: 0 1px 0 0 #C80150 !important;
 }
-
+.input-field textarea:focus + label {
+    color: #C80150 !important;
+}
+.input-field textarea:focus {
+    border-bottom: 1px solid #C80150 !important;
+    box-shadow: 0 1px 0 0 #C80150 !important;
+}
 .select-dropdown > li > span {
     color: #66665c;
 }
-
 .modal-footer > button {
     margin-right: 5px !important;
 }
-
 .tabs .indicator {
     background-color: #C80150 !important;
 }
-
 .tab-section {
     padding-top: 0 !important;
 }
-
 /* Dropdown menu */
 .dropdown-content > li > a{
     color: #455a64 !important;
     text-align: center;
     font-weight: Bold;
 }
-
 .dropdown-content > li {
     text-align: center;
 }
-
 .dropdown-content {
     z-index: 1;
+    margin-top: -2px;
     overflow: visible !important;
 }
-
 .second-dropdown {
-    margin-left: 235px !important;
+    margin-left: 232px !important;
     margin-top: -50px !important;
 }
-
 .show-pic {
     padding: 0 !important;
     margin : 0 !important;
 }
-
 .parallax-container {
     height: 250px;
 }
-
 .vintage {
     -webkit-filter: sepia(70%) grayscale(40%) brightness(60%);
     -moz-filter: sepia(70%) grayscale(40%) brightness(60%);
@@ -197,41 +166,32 @@ main {
     -ms-filter: sepia(70%) grayscale(40%) brightness(60%);
     filter: sepia(70%) grayscale(30%) brightness(60%);
 }
-
-
 .parallax-header {
     color: #FFFFFF;
     font-weight: Bold;
 }
-
 .container-header {
     border-bottom: 1.5px solid #DDDDDD;
     margin: 0 0 20px 0;
 }
-
 .board-title {
     color: #C80150;
     font-size: 50px;
     font-weight: Bold;
     padding-right: 30px;
 }
-
 .page {
     min-height: 500px;
 }
-
 .menu {
     font-weight: Bold !important;
 }
-
 .cmenu {
-    padding: 20px 0 20px 20px !important;
+    padding: 10px 0 10px 20px !important;
 }
-
 .no-h {
     color: black;
 }
-
 .icon {
     width: 40%;
     min-width: 20px;
@@ -482,13 +442,13 @@ main {
 .cardnews-content {
     margin-top: 20px;
 }
-
 .card-news-mobile {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
-
-
+.scroll-btn {
+    display: none;
+}
 /* Chart */
 .chart {
     background-color: #fafafa;

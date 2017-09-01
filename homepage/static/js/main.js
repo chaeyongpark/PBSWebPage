@@ -81,8 +81,7 @@ $(document).ready(function(){
     $('.dropdown-button').dropdown({
         constrainWidth: false,
         hover: true,
-        belowOrigin: true,
-        stopPropagation: false
+        belowOrigin: true
     });
 
     $('.video-card').matchHeight();
@@ -107,6 +106,10 @@ function Resize() {
         $('#ivideo2').height(h);
         $('#rsurvey').height(h*0.96/2);
         $('#rnote').height(h*0.96/2);
+    } else {
+        var h = $('#ivideo').height() > $('#ivideo2').height() ? $('#ivideo').height() : $('#ivideo2').height();
+        $('#ivideo').height(h); 
+        $('#ivideo2').height(h);
     }
 }
 /**
@@ -123,23 +126,36 @@ $('#search-btn').click(function(e) {
 });
 
 /**
+ * Scroll to Top
+ */
+$('.scroll-btn').click(function(e) {
+    $( 'html, body' ).animate( { scrollTop : 0 }, 400 );
+    return false;
+});
+
+/**
  * Navbar change event, when mouse scrolling
  * When mouse moves down side, navbar become little transparent
  * When mouse moves upside, navbar become default mode 
  */
 var prev_scroll = 0;
-$(window).on("scroll load resize", function(){
+$(window).on("scroll", function(){
     var nav_height = $('.navbar-pbs').height();
     
-    if ($(window).scrollTop() - prev_scroll > 0) {
+    if ($(window).scrollTop() - prev_scroll > 20) {
         $('.navbar-pbs').addClass("scrolled");
         prev_scroll = $(window).scrollTop();
     } else if (prev_scroll - $(window).scrollTop() > 20) {
         $('.navbar-pbs').removeClass("scrolled");
         prev_scroll = $(window).scrollTop();
     }
+    
+    if ( $( this ).scrollTop() > 200 ) {
+        $( '.scroll-btn' ).fadeIn();
+    } else {
+        $( '.scroll-btn' ).fadeOut();
+    }
 });
-
 /**
  * video page movement event
  * Method: AJAX POST
@@ -176,6 +192,22 @@ $(document).on('click', '.list_change', function () {
         $('#page-counter').html(p); 
     });
 
+    return false;
+});
+
+/**
+ * Write Survey and Notice in web page 
+ * 
+ * @login required
+ */
+$(document).on('click', '.write_note', function () {
+    $.post("write", { title: $('#title').val(), content: $('#content').val(), type: $(this).attr('name') }, function (data) {
+        if (data.is_success == true) {
+            $('.con').html("<p class=\"no-search\">작성하였습니다</p>");
+        } else {
+            $('.con').html("<p class=\"no-search\">작성을 실패하였습니다</p>");
+        }
+    });
     return false;
 });
 

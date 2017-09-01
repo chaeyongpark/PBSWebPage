@@ -30,10 +30,7 @@ Copyright by [Chaeyong Park](https://www.facebook.com/profile.php?id=10000316460
 * CardNews
 	* Cardnews AJAX loading in order to loading more faster
 	* Make cardnews 100% width
-* Survey
-	* Survey embeded page
 * Remain page
 	* Board
 * Search
     * Date filtering
-    * blocking blank search

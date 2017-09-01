@@ -19,10 +19,8 @@
 		{% endif %}
 	</div>
 </div>
-<div class="col m12">
-	{% autoescape off %}
-	<p>{{ main_video.explain }}</p>
-	{% endautoescape %}		
+<div class="col s12">
+	<p>{{ main_video.explain|linebreaks }}</p>
 </div>
 <div class="video-copyright col s12">
 	<p>© 포항공과대학교방송국PBS(http://pbs.postech.ac.kr)<br>무단전재 및 재배포금지 | <a class="postech-orange-text" href="/contact">저작권문의</a></p>

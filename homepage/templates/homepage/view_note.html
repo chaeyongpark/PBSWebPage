@@ -8,13 +8,11 @@
 	</div>
 	<div class="col m10 offset-m1 s12 notice-content">
 		<p class="notice-content">
-		{% autoescape off %}
-			{{ note.content }}
-		{% endautoescape %}		
+			{{ note.content|linebreaks }}
 		</p>
 	</div>
 </div>
 <div class="fixed-action-btn" style="bottom: 20px; right: 20px">
-	<a href="/notice" class="waves-effect waves-light btn-large btn-floating postech-red" ><i class="material-icons">menu</i></a>
+	<a href="/notice" class="waves-effect waves-light btn-large btn-floating postech-red"><i class="material-icons">menu</i></a>
 </div>
 {% include 'homepage/lower_template.html' %}

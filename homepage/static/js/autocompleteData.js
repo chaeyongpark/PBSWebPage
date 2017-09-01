@@ -11,8 +11,12 @@
  * Linkedin: www.linkedin.com/in/chaeyong
  */
 var auto_data =  {
+    "박채용": "/static/img/sdb/cypark.jpg",
     "피플": null,
-    "박채용": "https://upload.wikimedia.org/wikipedia/en/6/62/Kermit_the_Frog.jpg",
+    "포스텍": null,
+    "PBS": null,
     "포카전": null,
-    "요기조기": null
+    "요기조기": null,
+    "새내기새로배움터": null,
+    "해맞이한마당": null
 }

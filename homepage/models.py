@@ -26,7 +26,7 @@ class Video(models.Model):
     title = models.CharField(max_length = 64)
     category = models.ForeignKey(Category)
     url = models.CharField(max_length = 64)
-    explain = models.CharField(max_length = 64, null = True, default="This is test comment of video. you should fill this place")
+    explain = models.TextField(null = True, default="Please write comment")
     date = models.DateField(blank = True, null = True)
     is_youtube = models.BooleanField(default = True)
 
