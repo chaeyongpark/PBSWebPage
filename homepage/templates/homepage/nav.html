@@ -25,7 +25,7 @@
 </div>
 
 <div id="search-modal" class="modal search-text">
-	<form action="/search" method="get">
+	<form action="/search" method="get" autocomplete="off">
     <div class="modal-content">
 		<div class="row">
 			<div class="input-field col s6">
@@ -51,8 +51,10 @@
 
 <ul id="mobile-menu" class="collapsible side-nav" data-collapsible="accordion">
     <li>
-		<div class="user-view">
-            <a href="/"><span class="postech-red-text">pcy8201@postech.ac.kr</span></a>
+		<div class="user-view" style="padding: 0; margin: 0">
+            <a href="/">
+                <img class="responsive-img"src="{% static 'img/thumbnail_kakao.png' %}">
+            </a>
         </div>
 	</li>
     <li>

@@ -78,3 +78,12 @@ class Board(models.Model):
     def __str__(self):
         return self.title
 
+@python_2_unicode_compatible
+class Img(models.Model):
+    title = models.CharField(max_length = 32)
+    image = models.ImageField(upload_to = 'img/upload/', default = 'static/img/cardnews/default.png')
+    video = models.ForeignKey(Notice)
+
+    def __str__(self):
+        return self.title
+
