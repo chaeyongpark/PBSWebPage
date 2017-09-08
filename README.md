@@ -20,7 +20,6 @@ Copyright by [Chaeyong Park](https://www.facebook.com/profile.php?id=10000316460
 ## TODO
 
 * Design
-	* **IMPORTANT** change theme color
 	* Rearrange of footer content
 * Video
 	* Change video play button.
@@ -32,5 +31,3 @@ Copyright by [Chaeyong Park](https://www.facebook.com/profile.php?id=10000316460
 	* Make cardnews 100% width
 * Remain page
 	* Board
-* Search
-    * Date filtering
